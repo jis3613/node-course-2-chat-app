@@ -7,10 +7,10 @@ socket.on('connect',function(){
   //   to: 'jen@example.com',
   //   text: 'Hey, This is Andrew'
   // });
-  socket.emit('createMessage', {    //Alwasys first argv event name second data
-    from: 'Andrew',
-    text: 'Yup, that works for me'
-  });
+  // socket.emit('createMessage', {    //Alwasys first argv event name second data
+  //   from: 'Andrew',
+  //   text: 'Yup, that works for me'
+  // });
 
 });
 
