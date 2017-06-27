@@ -27,14 +27,35 @@ io.on('connection',(socket)=>{
   //   createdAt: 123
   // });
 
+  socket.emit('newMessage',{
+    from: 'Admin',
+    text: 'Welcome to the chat app',
+    createdAt: new Date().getTime()
+  });
+
+  socket.broadcast.emit('newMessage',{
+    from: 'Admin',
+    text: 'New user joined',
+    createdAt: new Date().getTime()
+  });
+
   socket.on('createMessage',(message) => {
     console.log('createMessage',message);
+
     //io.emit은 emit event to every single connection
     io.emit('newMessage',{
       from: message.from,
       text: message.text,
       createdAt: new Date().getTime()
     });
+
+    //broadcast 나뺴고 나머지한테 다 보내는거
+    // socket.broadcast.emit('newMessage',{
+    //   from: message.from,
+    //   text: message.text,
+    //   createdAt: new Date().getTime()
+    // })
+
   });
 
   socket.on('disconnect', () =>{
