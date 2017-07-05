@@ -46,7 +46,7 @@ io.on('connection',(socket)=>{
   socket.on('createMessage',(message,callback) => {
     console.log('createMessage',message);
     io.emit('newMessage',generateMessage(message.from, message.text));
-    callback('This is from the server.');
+    callback();
     //io.emit은 emit event to every single connection
     // io.emit('newMessage',{
     //   from: message.from,
