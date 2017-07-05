@@ -37,7 +37,7 @@ socket.on('newMessage',function(message){
 //   console.log('Got it',data);
 // });
 
-socket.on('newsLocationMessage', function(message){
+socket.on('newLocationMessage', function(message){
   var li = jQuery('<li></li>');
   var a = jQuery('<a target="_blank">My current location</a>');
 
@@ -66,7 +66,7 @@ locationButton.on('click', function(){
     return alert('Geolocation not supported by your browser.')
   }
 
-  locationButton.attr('disabled','disabled').text('Sending location');
+  locationButton.attr('disabled','disabled').text('Sending location...');
 
   navigator.geolocation.getCurrentPosition(function(position){
     locationButton.removeAttr('disabled').text('Send location');
