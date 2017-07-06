@@ -9,7 +9,8 @@ function scrollToBottom(){
   var scrollTop = messages.prop('scrollTop'); //user가 보는 부분의 윗부분
   var scrollHeight = messages.prop('scrollHeight'); //메세지창의 전체 부분
   var newMessageHeight = newMessage.innerHeight();
-  var lastMessageHeight = newMessage.prev().innerHeight();
+  var lastMessageHeight = newMessage.prev().innerHeight();//prev()를 쓰면 newMessage전의 것 그러니까 마지막에서 두번째것을 가리킴
+  
 
 
   if(clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
